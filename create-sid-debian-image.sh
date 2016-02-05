@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Creates a debian rootfs image which can be flashed on Edison
+# Creates an unstable debian rootfs image which can be flashed on Edison
 # Requires that the host system has the following packages: debootstrap debian-archive-keyring python
 
 top_repo_dir=$(dirname $(dirname $(dirname $(readlink -f $0))))
@@ -79,7 +79,7 @@ $top_repo_dir/meta-intel-edison/utils/flash/postBuild.sh $build_dir
 
 echo "*** Start creating a debian rootfs image ***"
 
-ROOTDIR=jessie-chroot
+ROOTDIR=sid-chroot
 
 if [ "$skip_debootstrap" != "true" ]; then
   rm -rf $ROOTDIR
